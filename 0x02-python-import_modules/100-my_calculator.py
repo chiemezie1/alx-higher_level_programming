@@ -3,31 +3,28 @@ from sys import argv
 from calculator_1 import add, sub, mul, div
 
 if __name__ == "__main__":
-    ags = len(argv)
-    if ags != 4:
+    if len(argv) != 4:
         print("Usage: ./100-my_calculator.py <a> <operator> <b>")
         exit(1)
-    else:
-        agsA = int(argv[1])
-        opr = argv[2]
-        agsB = int(argv[3])
 
-        if opr not in ["+", "-", "*", "/"]:
-            print("Unknown operator. Available operators: +, -, * and /")
-            exit(1)
+    a = int(argv[1])
+    operator = argv[2]
+    b = int(argv[3])
 
-        if opr == "+":
-            print("{:d} + {:d} = {:d}".format(agsA, agsB, add(agsA, agsB)))
-        elif opr == "-":
-            print("{:d} - {:d} = {:d}".format(agsA, agsB, sub(agsA, agsB)))
-        elif opr == "*":
-            print("{:d} * {:d} = {:d}".format(agsA, agsB, mul(agsA, agsB)))
-        elif opr == "/":
-            if agsB == 0:
-                print("Error: Division by zero")
-                exit(1)
-            print("{:d} / {:d} = {:d}".format(agsA, agsB, div(agsA, agsB)))
-        else:
-            print("Unknown error occurred")
+    if operator not in ["+", "-", "*", "/"]:
+        print("Unknown operator. Available operators: +, -, * and /")
+        exit(1)
+
+    if operator == "+":
+        result = add(a, b)
+    elif operator == "-":
+        result = sub(a, b)
+    elif operator == "*":
+        result = mul(a, b)
+    elif operator == "/":
+        if b == 0:
+            print("Error: Division by zero")
             exit(1)
-        exit(0)
+        result = div(a, b)
+
+    print("{:d} {} {:d} = {:d}".format(a, operator, b, result))
