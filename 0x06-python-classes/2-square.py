@@ -8,9 +8,13 @@ This class defines a square
 
 class square:
     """ __init__ method
-
+    
     args:
         size (int): size of the square
+
+    Raises:
+        TypeError: if size is not an integer
+        ValueError: if size is less than 0
 
     """
 
