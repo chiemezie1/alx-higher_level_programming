@@ -5,6 +5,7 @@ This class defines a square
 
 """
 
+
 class Square:
     """__init__ method
 
