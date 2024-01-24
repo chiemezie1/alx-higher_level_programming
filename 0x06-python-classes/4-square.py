@@ -42,14 +42,13 @@ class Square:
             int: The size of the square.
         """
         return self.__size
-    
-    
+
     @size.setter
     def size(self, size):
         """Set the size of the square.
         Args:
             size (int): The new size of the square.
-        
+
         Raises:
             TypeError: If size is not an integer.
             ValueError: If size is less than 0.
