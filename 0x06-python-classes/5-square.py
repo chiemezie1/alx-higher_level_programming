@@ -1,71 +1,63 @@
 #!/usr/bin/python3
-"""Square Class
 
-This class defines a square with size validation.
+class Node:
+    """Node class for singly linked list"""
 
-"""
-
-
-class Square:
-    """Square Class"""
-
-    def __init__(self, size=0):
-        """Initialize a Square instance.
-
-        Args:
-            size (int): The size of the square.
-
-        Raises:
-            TypeError: If size is not an integer.
-            ValueError: If size is less than 0.
-        """
-        if not isinstance(size, int):
-            raise TypeError("size must be an integer")
-        elif size < 0:
-            raise ValueError("size must be >= 0")
-        else:
-            self.__size = size
-
-    def area(self):
-        """Calculate the area of the square.
-
-        Returns:
-            int: The area of the square.
-        """
-        return self.__size * self.__size
+    def __init__(self, data, next_node=None):
+        """Initialize a new Node"""
+        self.data = data
+        self.next_node = next_node
 
     @property
-    def size(self):
-        """Get the size of the square.
+    def data(self):
+        """Retrieve the data value of the node"""
+        return self.__data
 
-        Returns:
-            int: The size of the square.
-        """
-        return self.__size
+    @data.setter
+    def data(self, value):
+        """Set the data value of the node"""
+        if not isinstance(value, int):
+            raise TypeError("data must be an integer")
+        self.__data = value
 
-    @size.setter
-    def size(self, size):
-        """Set the size of the square.
-        Args:
-            size (int): The new size of the square.
+    @property
+    def next_node(self):
+        """Retrieve the next_node value of the node"""
+        return self.__next_node
 
-        Raises:
-            TypeError: If size is not an integer.
-            ValueError: If size is less than 0.
-        """
-        if not isinstance(size, int):
-            raise TypeError("size must be an integer")
-        elif size < 0:
-            raise ValueError("size must be >= 0")
+    @next_node.setter
+    def next_node(self, value):
+        """Set the next_node value of the node"""
+        if value is not None and not isinstance(value, Node):
+            raise TypeError("next_node must be a Node object")
+        self.__next_node = value
+
+
+class SinglyLinkedList:
+    """SinglyLinkedList class"""
+
+    def __init__(self):
+        """Initialize an empty SinglyLinkedList"""
+        self.head = None
+
+    def sorted_insert(self, value):
+        """Insert a new Node into the correct sorted position in the list"""
+        new_node = Node(value)
+        if self.head is None or self.head.data >= value:
+            new_node.next_node = self.head
+            self.head = new_node
         else:
-            self.__size = size
+            current = self.head
+            while current.next_node is not None and current.next_node.data < value:
+                current = current.next_node
+            new_node.next_node = current.next_node
+            current.next_node = new_node
 
-    def my_print(self):
-        """Print the square with the # character."""
-        if self.__size == 0:
-            print()
-        else:
-            for i in range(self.__size):
-                for j in range(self.__size):
-                    print("#", end="")
-                print()
+    def __str__(self):
+        """Print the entire list in stdout"""
+        result = []
+        current = self.head
+        while current is not None:
+            result.append(str(current.data))
+            current = current.next_node
+        return "\n".join(result)
