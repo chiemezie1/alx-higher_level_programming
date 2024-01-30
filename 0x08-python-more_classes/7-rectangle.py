@@ -74,18 +74,6 @@ class Rectangle:
             raise ValueError("height must be >= 0")
         self.__height = value
 
-    @property
-    def print_symbol(self):
-        """Getter for print_symbol"""
-        return self.__print_symbol
-
-    @print_symbol.setter
-    def print_symbol(self, value):
-        """Setter for print_symbol"""
-        if not isinstance(value, str):
-            raise TypeError("print_symbol must be a string")
-        self.__print_symbol = value
-
     def area(self):
         """returns the rectangle area"""
         return self.__width * self.__height
@@ -102,7 +90,7 @@ class Rectangle:
             return ""
         rect = []
         for i in range(self.__height):
-            [rect.append(self.print_symbol) for j in range(self.__width)]
+            [rect.append(str(self.print_symbol)) for j in range(self.__width)]
             if i != self.__height - 1:
                 rect.append("\n")
         return ("".join(rect))
