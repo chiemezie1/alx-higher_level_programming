@@ -74,6 +74,16 @@ class Rectangle:
             raise ValueError("height must be >= 0")
         self.__height = value
 
+    @property
+    def print_symbol(self):
+        """Getter for print_symbol"""
+        return self.__print_symbol
+
+    @print_symbol.setter
+    def print_symbol(self, value):
+        """Setter for print_symbol"""
+        self.__print_symbol = value
+
     def area(self):
         """returns the rectangle area"""
         return self.__width * self.__height
