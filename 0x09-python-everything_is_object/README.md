@@ -8,9 +8,6 @@ b = "banana"`
 
 we know that a and b will refer to a string with the letters "banana". But we don’t know yet whether they point to the *same* string.
 
-There are two possible states:
-
-!https://www.openbookproject.net/thinkcs/python/english2e/_images/mult_references1.png
 
 In one case, a and b refer to two different things that have the same value. In the second case, they refer to the same thing. These things have names — they are called **objects**. An object is something a variable can refer to.
 
@@ -37,12 +34,6 @@ True
 **>>>** a **is** b
 False`
 
-The state diagram here looks like this:
-
-!https://www.openbookproject.net/thinkcs/python/english2e/_images/mult_references2.png
-
-a and b have the same value but do not refer to the same object.
-
 ## 9.11. Aliasing
 
 Since variables refer to objects, if we assign one variable to another, both variables refer to the same object:
@@ -52,9 +43,6 @@ Since variables refer to objects, if we assign one variable to another, both var
 **>>>** a **is** b
 True`
 
-In this case, the state diagram looks like this:
-
-!https://www.openbookproject.net/thinkcs/python/english2e/_images/mult_references3.png
 
 Because the same list has two different names, a and b, we say that it is **aliased**. Changes made with one alias affect the other:
 
