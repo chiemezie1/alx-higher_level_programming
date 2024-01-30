@@ -82,6 +82,8 @@ class Rectangle:
     @print_symbol.setter
     def print_symbol(self, value):
         """Setter for print_symbol"""
+        if not isinstance(value, str):
+            raise TypeError("print_symbol must be a string")
         self.__print_symbol = value
 
     def area(self):
