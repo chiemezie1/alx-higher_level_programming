@@ -33,7 +33,6 @@ class Rectangle:
     """
 
     number_of_instances = 0
-    print_symbol = "#"
 
     def __init__(self, width=0, height=0):
         """Instantiation with optional width and height
@@ -43,7 +42,7 @@ class Rectangle:
         """
         self.width = width
         self.height = height
-
+        self.print_symbol = "#"
         Rectangle.number_of_instances += 1
 
     @property
@@ -73,6 +72,14 @@ class Rectangle:
         if value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
+
+    @print_symbol.setter
+    def print_symbol(self, value):
+        if not isinstance(value, str):
+            raise TypeError("print_symbol must be a string")
+        if len(value) != 1:
+            raise ValueError("print_symbol must be a single character")
+        self.__print_symbol = value
 
     def area(self):
         """returns the rectangle area"""
