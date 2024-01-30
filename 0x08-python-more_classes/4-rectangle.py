@@ -22,7 +22,7 @@ class Rectangle:
 
     print the rectangle with the character #
 
-   `repr()` should return a string representation of the rectangle to be able to
+   `repr()` should return a string representation of the rectangle
 
     """
 
