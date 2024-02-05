@@ -13,7 +13,7 @@ class MyList(list):
     inherits from list
 
     Public instance method: print_sorted
-    
+
     """
 
     def print_sorted(self):
