@@ -10,6 +10,9 @@ using JSON reprsentation
 
 
 def save_to_json_file(my_obj, filename):
-    """write an object to a text file as Json"""
-    with open(filename, mode='w') as file:
-        file.write(json.dump(my_obj))
+    """
+    returns the JSON representation of an object
+    """
+
+    with open(filename, 'w', encoding="utf-8") as f:
+        json.dump(my_obj, f)
