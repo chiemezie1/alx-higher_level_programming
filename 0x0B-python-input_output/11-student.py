@@ -27,6 +27,8 @@ class Student:
 
     @property
     def reload_from_json(self, json):
-        """class Student"""
-        for i in json:
-            self.__dict__[i] = json[i]
+          """
+          replaces all attributes of the Student instance
+          """
+          for k, v in json.items():
+              setattr(self, k, v)
