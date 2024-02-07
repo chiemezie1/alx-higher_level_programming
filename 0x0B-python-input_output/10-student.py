@@ -24,4 +24,3 @@ class Student:
                 if i in self.__dict__:
                     new_dict[i] = self.__dict__[i]
             return new_dict
-
