@@ -4,7 +4,7 @@ import json
 
 """
 function that returns python object
-represented as a JSON object 
+represented as a JSON object
 """
 
 
