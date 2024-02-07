@@ -1,6 +1,5 @@
-##!/usr/bin/python3
-
-""""importing the json"""
+#!/usr/bin/python3
+""" importing Json """
 import json
 
 """
@@ -11,8 +10,10 @@ using JSON reprsentation
 
 def save_to_json_file(my_obj, filename):
     """
-    returns the JSON representation of an object
-    """
+    Writes an object to a text file using a JSON representation.
 
-    with open(filename, 'w', encoding="utf-8") as f:
-        json.dump(my_obj, f)
+    :param my_obj: The object to be serialized and saved.
+    :param filename: The name of the file to save the JSON representation.
+    """
+    with open(filename, 'w') as file:
+        json.dump(my_obj, file)
