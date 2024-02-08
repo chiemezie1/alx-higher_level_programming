@@ -26,7 +26,7 @@ def matrix_divided(matrix, div):
 
         for element in row:
             if not isinstance(element, (int, float)):
-                raise TypeError(error_msg_list)
+                raise TypeError(error_msg)
 
     if not isinstance(div, (int, float)):
         raise TypeError(error_msg_div)
