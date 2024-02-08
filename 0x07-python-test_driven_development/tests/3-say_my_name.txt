@@ -4,7 +4,7 @@
 
 Import module:
 ==============
-    >>> say_my_name = __import__('2-say_my_name.txt').say_my_name
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
 
 Founction:
 ==========
