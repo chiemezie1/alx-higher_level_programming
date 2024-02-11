@@ -3,7 +3,8 @@
 class Rectangle that inherits from Base
 """
 
-from models.base import Base
+#from models.base import Base
+from base import Base
 
 
 class Rectangle(Base):
@@ -92,3 +93,37 @@ class Rectangle(Base):
 
         if value < 0 and param in ('x', 'y'):
             raise ValueError(f"{param} must be >= 0")
+    
+    @property
+    def area(self):
+        """
+        returns the area value of the Rectangle instance
+        """
+        return self.__height * self.__width
+
+    @property
+    def display(self):
+        """
+        prints in stdout the Rectangle instance with the character #
+        """
+        if self.__y > 0:
+            print("\n" * self.__y, end="")
+        for _ in range(self.__height):
+            if self.__x > 0:
+                print(" " * self.__x, end="")
+            print("#" * self.__width)
+       
+    def __str__(self):
+        """
+        overriding the __str__ method
+        returns [Rectangle] (<id>) <x>/<y> - <width>/<height>
+        """
+
+        id = self.id
+        x = self.__x
+        y = self.__y
+        width = self.__width
+        height = self.__height
+
+        return  "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:D}".format(id, x, y, width, height)
+    

@@ -105,3 +105,30 @@ class TestRectangle(unittest.TestCase):
 
         with self.assertRaises(TypeError):
             Rectangle(1, (2, 3))
+
+
+    def test_for_area(self):
+        """
+        Test that checks the area value
+        """
+        rect = Rectangle(2, 3)
+        self.assertEqual(rect.area(), 6)
+
+        rect = Rectangle(7, 3, 4, 5)
+        self.assertEqual(rect.area(), 21)
+
+        rect = Rectangle(2, 9, 4, 5, 6)
+        self.assertEqual(rect.area(), 18)
+
+    def test_for___str__(self):
+        """
+        Test that checks the __str__ method
+        """
+        rect = Rectangle(2, 3, 4, 5, 6)
+        self.assertEqual(rect.__str__(), "[Rectangle] (6) 4/5 - 2/3")
+
+        rect = Rectangle(9, 3, 4, 5, 1)
+        self.assertEqual(rect.__str__(), "[Rectangle] (1) 4/5 - 9/3")
+
+        rect = Rectangle(2, 9, 5, 5, 2)
+        self.assertEqual(rect.__str__(), "[Rectangle] (2) 5/5 - 2/9")
