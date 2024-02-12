@@ -128,7 +128,6 @@ class Rectangle(Base):
 
         return str
 
-    @property
     def update(self, *args, **kwargs):
         """
         update the rectangle class,

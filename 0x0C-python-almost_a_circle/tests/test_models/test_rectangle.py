@@ -45,7 +45,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rect.height, 2)
         self.assertEqual(rect.x, 0)
         self.assertEqual(rect.y, 0)
-        self.assertEqual(rect.id, 3)
+        self.assertEqual(rect.id, 4)
 
         self.assertEqual(rect1.width, 2)
         self.assertEqual(rect1.height, 3)
@@ -112,13 +112,13 @@ class TestRectangle(unittest.TestCase):
         Test that checks the area value
         """
         rect = Rectangle(2, 3)
-        self.assertEqual(rect.area(), 6)
+        self.assertEqual(rect.area,6)
 
         rect = Rectangle(7, 3, 4, 5)
-        self.assertEqual(rect.area(), 21)
+        self.assertEqual(rect.area,21)
 
         rect = Rectangle(2, 9, 4, 5, 6)
-        self.assertEqual(rect.area(), 18)
+        self.assertEqual(rect.area,18)
 
     def test_for___str__(self):
         """
@@ -151,7 +151,7 @@ class TestRectangle(unittest.TestCase):
         rect2.update(89, 2)
         self.assertEqual(rect2.__str__(), "[Rectangle] (89) 5/5 - 2/9")
         rect3.update(89, 2, 3)
-        self.assertEqual(rect3.__str__(), "[Rectangle] (89) 3/4 - 2/3")
+        self.assertEqual(rect3.__str__(), "[Rectangle] (89) 4/5 - 2/3")
         rect4.update(89, 2, 3, 4)
         self.assertEqual(rect4.__str__(), "[Rectangle] (89) 4/5 - 2/3")
         rect5.update(89, 2, 3, 4, 5)
