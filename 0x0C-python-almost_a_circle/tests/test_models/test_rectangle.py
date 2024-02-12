@@ -45,7 +45,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rect.height, 2)
         self.assertEqual(rect.x, 0)
         self.assertEqual(rect.y, 0)
-        self.assertEqual(rect.id, 2)
+        self.assertEqual(rect.id, 3)
 
         self.assertEqual(rect1.width, 2)
         self.assertEqual(rect1.height, 3)
@@ -132,3 +132,27 @@ class TestRectangle(unittest.TestCase):
 
         rect = Rectangle(2, 9, 5, 5, 2)
         self.assertEqual(rect.__str__(), "[Rectangle] (2) 5/5 - 2/9")
+
+
+    def test_on_args(self):
+        """
+        Test that checks the  public method update
+        """
+
+        rect1 = Rectangle(9, 3, 4, 5, 1)
+        rect2 = Rectangle(1, 9, 5, 5, 2)
+        rect3 = Rectangle(2, 3, 4, 5, 5)
+        rect4 = Rectangle(7, 1, 3, 5, 3)
+        rect5 = Rectangle(5, 6, 1, 2, 6)
+
+        rect1.update(89)
+        rect1.update(89)
+        self.assertEqual(rect1.__str__(), "[Rectangle] (89) 4/5 - 9/3")
+        rect2.update(89, 2)
+        self.assertEqual(rect2.__str__(), "[Rectangle] (89) 5/5 - 2/9")
+        rect3.update(89, 2, 3)
+        self.assertEqual(rect3.__str__(), "[Rectangle] (89) 3/4 - 2/3")
+        rect4.update(89, 2, 3, 4)
+        self.assertEqual(rect4.__str__(), "[Rectangle] (89) 4/5 - 2/3")
+        rect5.update(89, 2, 3, 4, 5)
+        self.assertEqual(rect5.__str__(), "[Rectangle] (89) 4/5 - 2/3")

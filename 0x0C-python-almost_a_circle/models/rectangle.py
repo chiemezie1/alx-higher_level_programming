@@ -3,8 +3,7 @@
 class Rectangle that inherits from Base
 """
 
-#from models.base import Base
-from base import Base
+from models.base import Base
 
 
 class Rectangle(Base):
@@ -93,7 +92,7 @@ class Rectangle(Base):
 
         if value < 0 and param in ('x', 'y'):
             raise ValueError(f"{param} must be >= 0")
-    
+
     @property
     def area(self):
         """
@@ -108,11 +107,12 @@ class Rectangle(Base):
         """
         if self.__y > 0:
             print("\n" * self.__y, end="")
+
         for _ in range(self.__height):
             if self.__x > 0:
                 print(" " * self.__x, end="")
             print("#" * self.__width)
-       
+
     def __str__(self):
         """
         overriding the __str__ method
@@ -122,20 +122,31 @@ class Rectangle(Base):
         id = self.id
         x = self.__x
         y = self.__y
-        width = self.__width
-        height = self.__height
+        w = self.__width
+        h = self.__height
+        str = "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}".format(id, x, y, w, h)
 
-        return  "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:D}".format(id, x, y, width, height)
-    
+        return str
+
     @property
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """
-        update the rectangle class, assigns an argument to each attribute
+        update the rectangle class,
+        assigns an argument to each attribute
+
+        **kwargs must be skipped if *args exists and is not empty
         """
-        self.id = args[0]
-        self.__width = args[1]
-        self.__height = args[2]
-        self.__x = args[3]
-        self.__y = args[4]
+        argc = len(args)
+        kwargc = len(kwargs)
+        attribute_to_set = ['id', 'width', 'height', 'x', 'y']
 
+        if argc > 5:
+            argc = 5
 
+        if argc > 0:
+            for i in range(argc):
+                setattr(self, attribute_to_set[i], args[i])
+        elif kwargc > 0:
+            for k, v in kwargs.items():
+                if k in attribute_to_set:
+                    setattr(self, k, v)
