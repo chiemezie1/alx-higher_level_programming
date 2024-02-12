@@ -7,22 +7,25 @@ from models.base import Base
 
 
 class Rectangle(Base):
+    """
+    class Rectangle that inherits from Base
+    """
+
     def __init__(self, width, height, x=0, y=0, id=None):
         """
-        class Rectangle that inherits from Base
+        initiating the class
         """
-
         super().__init__(id)
-        self.check_integers_value(width, "width")
-        self.check_integers_value(height, "height")
-        self.check_integers_value(x, "x")
-        self.check_integers_value(y, "y")
+
+        self.check_integer_parameter(width, 'width')
+        self.check_integer_parameter(height, 'height')
+        self.check_integer_parameter(x, 'x')
+        self.check_integer_parameter(y, 'y')
 
         self.__width = width
         self.__height = height
         self.__x = x
         self.__y = y
-
 
     @property
     def width(self):
@@ -32,12 +35,13 @@ class Rectangle(Base):
         return self.__width
 
     @width.setter
-    def width(self, value):
+    def width(self, param):
         """
         width setter
         """
-        self.check_integers_value(value, "width")
-        self.__width = value
+        self.check_integer_parameter(param, 'width')
+
+        self.__width = param
 
     @property
     def height(self):
@@ -47,12 +51,13 @@ class Rectangle(Base):
         return self.__height
 
     @height.setter
-    def height(self, value):
+    def height(self, param):
         """
         height setter
         """
-        self.check_integers_value(value, "height")
-        self.__height = value
+        self.check_integer_parameter(param, 'height')
+
+        self.__height = param
 
     @property
     def x(self):
@@ -62,12 +67,13 @@ class Rectangle(Base):
         return self.__x
 
     @x.setter
-    def x(self, value):
+    def x(self, param):
         """
         x setter
         """
-        self.check_integers_value(value, "x")
-        self.__x = value
+        self.check_integer_parameter(param, 'x')
+
+        self.__x = param
 
     @property
     def y(self):
@@ -77,60 +83,55 @@ class Rectangle(Base):
         return self.__y
 
     @y.setter
-    def y(self, value):
+    def y(self, param):
         """
         y setter
         """
-        self.check_integers_value(value, "y")
-        self.__y = value
+        self.check_integer_parameter(param, 'y')
 
-    def check_integers_value(self, value, param):
+        self.__y = param
+
+    def check_integer_parameter(self, value, param):
         """
         check if value is an integer and > 0
         """
         if type(value) is not int:
-            raise TypeError(f"{param} must be an integer")
+            raise TypeError(param + ' must be an integer')
 
         if value <= 0 and param in ('width', 'height'):
-            raise ValueError(f"{param} must be > 0")
+            raise ValueError(param + ' must be > 0')
 
         if value < 0 and param in ('x', 'y'):
-            raise ValueError(f"{param} must be >= 0")
+            raise ValueError(param + ' must be >= 0')
 
-    @property
     def area(self):
         """
         returns the area value of the Rectangle instance
         """
-        return self.__height * self.__width
+        return self.__width * self.__height
 
-    @property
     def display(self):
         """
         prints in stdout the Rectangle instance with the character #
         """
         if self.__y > 0:
-            print("\n" * self.__y, end="")
+            print('\n' * self.__y, end='')
 
-        for _ in range(self.__height):
+        for i in range(self.height):
             if self.__x > 0:
-                print(" " * self.__x, end="")
-            print("#" * self.__width)
+                print(' ' * self.__x, end='')
+
+            print('#' * self.__width)
 
     def __str__(self):
         """
         overriding the __str__ method
         returns [Rectangle] (<id>) <x>/<y> - <width>/<height>
+        
         """
-
-        id = self.id
-        x = self.__x
-        y = self.__y
-        w = self.__width
-        h = self.__height
-        str = "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}".format(id, x, y, w, h)
-
-        return str
+        return '[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}'.format(
+            self.id, self.x, self.y, self.width, self.height
+        )
 
     def update(self, *args, **kwargs):
         """
@@ -139,24 +140,31 @@ class Rectangle(Base):
 
         **kwargs must be skipped if *args exists and is not empty
         """
+
         argc = len(args)
         kwargc = len(kwargs)
-        attribute_to_set = ['id', 'width', 'height', 'x', 'y']
+        modif_attrs = ['id', 'width', 'height', 'x', 'y']
 
         if argc > 5:
             argc = 5
 
         if argc > 0:
             for i in range(argc):
-                setattr(self, attribute_to_set[i], args[i])
+                setattr(self, modif_attrs[i], args[i])
         elif kwargc > 0:
             for k, v in kwargs.items():
-                if k in attribute_to_set:
+                if k in modif_attrs:
                     setattr(self, k, v)
 
-    @property
+
     def to_dictionary(self):
         """
         returns the dictionary representation of a Rectangle
         """
-        return self.__dict__
+        return {
+            'id': self.id,
+            'width': self.width,
+            'height': self.height,
+            'x': self.x,
+            'y': self.y
+        }
