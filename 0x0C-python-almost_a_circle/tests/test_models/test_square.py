@@ -24,3 +24,5 @@ class TestSquare(unittest.TestCase):
             check.total_errors, 0,
             "Found code style errors (and warnings)."
         )
+
+    

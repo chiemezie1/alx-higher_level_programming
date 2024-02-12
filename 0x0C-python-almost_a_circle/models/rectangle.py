@@ -153,3 +153,10 @@ class Rectangle(Base):
             for k, v in kwargs.items():
                 if k in attribute_to_set:
                     setattr(self, k, v)
+
+    @property
+    def to_dictionary(self):
+        """
+        returns the dictionary representation of a Rectangle
+        """
+        return self.__dict__
