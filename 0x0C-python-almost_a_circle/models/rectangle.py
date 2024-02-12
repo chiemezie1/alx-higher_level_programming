@@ -8,6 +8,11 @@ from models.base import Base
 
 class Rectangle(Base):
     def __init__(self, width, height, x=0, y=0, id=None):
+        """
+        class Rectangle that inherits from Base
+        """
+
+        super().__init__(id)
         self.check_integers_value(width, "width")
         self.check_integers_value(height, "height")
         self.check_integers_value(x, "x")
@@ -18,7 +23,6 @@ class Rectangle(Base):
         self.__x = x
         self.__y = y
 
-        super().__init__(id)
 
     @property
     def width(self):
