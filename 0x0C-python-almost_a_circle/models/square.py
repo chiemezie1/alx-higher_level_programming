@@ -60,6 +60,13 @@ class Square(Rectangle):
                 if k in attribute_to_set:
                     setattr(self, k, v)
 
-    
-
-    
+        def to_dictionary(self):
+            """
+            returns the dictionary representation of a Rectangle
+            """
+            return {
+            'id': self.id,
+            'size': self.size,
+            'x': self.x,
+            'y': self.y
+        }
