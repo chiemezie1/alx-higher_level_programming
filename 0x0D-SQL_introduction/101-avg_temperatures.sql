@@ -1,7 +1,4 @@
--- This script calculates the average temperature in Fahrenheit by city
--- and orders the results by temperature in descending order
-
-SELECT city, AVG(temperature) AS avg_temp
-FROM temperatures
-GROUP BY city
-ORDER BY avg_temperature DESC;
+-- import dump into hbtn_0c_0
+-- displays avg temp by city ordered by temp (desc)
+SELECT city, AVG(value) avg_temp
+FROM temperatures GROUP BY city ORDER BY avg_temp DESC;
