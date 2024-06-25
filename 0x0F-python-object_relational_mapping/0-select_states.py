@@ -1,11 +1,15 @@
 #!/usr/bin/python3
+"""
+Script to list all states from the database hbtn_0e_0_usa.
+
+Usage: ./0-select_states.py <mysql username> <mysql password> <database name>
+"""
 import sys
 import MySQLdb
 
-
 def list_states(username, password, database):
     """
-    Connects to the MySQL server and retrieves all states from the 'states' table.
+    Connects to MySQL server and retrieves all states from 'states' table.
 
     Args:
     - username (str): MySQL username
@@ -44,8 +48,13 @@ def list_states(username, password, database):
         cursor.close()
         db.close()
 
-
 if __name__ == "__main__":
+    # Check if the correct number of arguments is provided
+    if len(sys.argv) != 4:
+        print("Usage: {} <mysql username> <mysql password> <database name>".format(sys.argv[0]))
+        sys.exit(1)
+
+    # Extract command-line arguments
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
