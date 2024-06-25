@@ -7,6 +7,7 @@ Usage: ./0-select_states.py <mysql username> <mysql password> <database name>
 import sys
 import MySQLdb
 
+
 def list_states(username, password, database):
     """
     Connects to MySQL server and retrieves all states from 'states' table.
@@ -47,6 +48,7 @@ def list_states(username, password, database):
         # Close the cursor and the connection
         cursor.close()
         db.close()
+
 
 if __name__ == "__main__":
     # Check if the correct number of arguments is provided
