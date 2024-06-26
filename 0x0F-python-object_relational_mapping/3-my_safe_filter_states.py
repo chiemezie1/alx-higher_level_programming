@@ -3,7 +3,8 @@
 Script that takes in an argument and displays all values in the states table
 of hbtn_0e_0_usa where name matches the argument.
 
-Usage: ./2-my_filter_states.py <mysql username> <mysql password> <database name> <state name>
+Usage: ./2-my_filter_states.py
+    <mysql username> <mysql password> <database name> <state name>
 """
 import sys
 import MySQLdb
@@ -62,7 +63,13 @@ def filter_states(username, password, database, state_name):
 if __name__ == "__main__":
     # Check if the correct number of arguments is provided
     if len(sys.argv) != 5:
-        print("Usage: {} <mysql username> <mysql password> <database name> <state name>".format(sys.argv[0]))
+        print("""
+              Usage: {}
+              <mysql username>
+              <mysql password>
+              <database name>
+              <state name>
+              """.format(sys.argv[0]))
         sys.exit(1)
 
     # Extract command-line arguments
