@@ -40,7 +40,7 @@ def filter_states(username, password, database, state_name):
         # Execute the query with user input using format
         query = """
         SELECT * FROM states
-        WHERE name = '{}'
+        WHERE states.name = '{}'
         ORDER BY id ASC
         """.format(state_name)
 
