@@ -9,7 +9,7 @@ import sys
 import MySQLdb
 
 
-def list_n_states(username, password, database):
+def list_states(username, password, database):
     """
     Connects to MySQL server and retrieves all states from 'states' table.
 
@@ -65,4 +65,4 @@ if __name__ == "__main__":
     password = sys.argv[2]
     database = sys.argv[3]
 
-    list_n_states(username, password, database)
+    list_states(username, password, database)
