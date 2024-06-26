@@ -40,7 +40,7 @@ def filter_states(username, password, database, state_name):
         # Execute the query with user input using format
         query = """
         SELECT * FROM states
-        WHERE states.name = '{}'
+        WHERE states.name LIKE BINARY'{}'
         ORDER BY states.id ASC
         """.format(state_name)
 
