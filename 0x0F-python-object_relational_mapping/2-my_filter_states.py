@@ -46,6 +46,7 @@ def find_states(username, password, database, name):
     cursor.close()
     db.close()
 
+
 if __name__ == "__main__":
     username = argv[1]
     password = argv[2]
