@@ -28,7 +28,7 @@ def filter_cities(username, password, database, state_name):
         # Execute the query
         cursor.execute(
             """
-            SELECT cities.id, cities.name
+            SELECT cities.name
             FROM cities
             JOIN states
             ON cities.state_id = states.id
