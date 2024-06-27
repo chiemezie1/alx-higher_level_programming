@@ -30,10 +30,9 @@ def filter_cities(username, password, database, state_name):
             """
             SELECT cities.name
             FROM cities
-            JOIN states
+            INNER JOIN states
             ON cities.state_id = states.id
             WHERE states.name = %s
-            ORDER BY cities.id ASC
             """,
             (state_name,)
         )
