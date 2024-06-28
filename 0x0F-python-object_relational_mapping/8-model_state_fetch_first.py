@@ -23,7 +23,7 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    # Query all State objects and print them
+    # Query all State objects and print the first one
     first_state = session.query(State).order_by(State.id).first()
 
     if first_state:
