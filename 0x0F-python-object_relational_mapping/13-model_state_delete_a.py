@@ -12,7 +12,8 @@ from model_state import Base, State
 if __name__ == "__main__":
     if len(sys.argv) != 4:
         print(
-            """Usage: ./13-model_state_delete_a.py
+            """
+            Usage: ./13-model_state_delete_a.py
               <mysql username> <mysql password> <database name>
             """
             )
