@@ -8,7 +8,6 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
 
-
 if __name__ == "__main__":
     if len(sys.argv) != 4:
         print(
@@ -16,7 +15,7 @@ if __name__ == "__main__":
             Usage: ./13-model_state_delete_a.py
               <mysql username> <mysql password> <database name>
             """
-            )
+        )
         sys.exit(1)
 
     try:
@@ -31,17 +30,24 @@ if __name__ == "__main__":
         Session = sessionmaker(bind=engine)
         session = Session()
 
-        # Query all State objects and delete the ones with the letter a
-        state_to_delete = session.query(State).filter(State.name.like('%a%')).all()
-        for state in state_to_delete:
+        # Query  and delete all objects that contain letter 'a' in their name
+        states_to_delete = session.query(State).filter(
+            State.name.like('%a%')
+            ).all()
+
+        for state in states_to_delete:
             session.delete(state)
 
         # Commit the changes
         session.commit()
+        print("Deletion completed.")
 
-        # Close the session
     except Exception as e:
-        print("Error: ", e)
+        print("Error:", e)
+        sys.exit(1)
+
     finally:
         # Close the session
-        session.close()
+        if session is not None:
+            session.close()
+            print("Session closed.")
