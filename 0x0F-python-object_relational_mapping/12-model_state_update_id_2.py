@@ -9,10 +9,12 @@ from model_state import Base, State
 
 if __name__ == "__main__":
     if len(sys.argv) != 4:
-        print("""Usage: ./12-model_state_update_id_2.py
+        print(
+            """
+            Usage: ./12-model_state_update_id_2.py
               <mysql username> <mysql password> <database name>
-              """
-              )
+            """
+            )
         sys.exit(1)
 
     try:
