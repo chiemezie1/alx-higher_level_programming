@@ -1,14 +1,20 @@
 #!/usr/bin/python3
 """
-Script that deletes all State objects with a name containing the letter a
-    from the database hbtn_0e_6_usa
+This script deletes all State objects
+with a name containing the letter `a`
+from the database `hbtn_0e_6_usa`.
 """
-import sys
+
+from sys import argv
+from model_state import Base, State
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from model_state import Base, State
+import sys
 
 if __name__ == "__main__":
+    """
+    Deletes State objects on the database.
+    """
     if len(sys.argv) != 4:
         print(
             """
@@ -37,7 +43,6 @@ if __name__ == "__main__":
         session.commit()
 
     except Exception as e:
-        print("Error:", e)
         sys.exit(1)
 
     finally:
