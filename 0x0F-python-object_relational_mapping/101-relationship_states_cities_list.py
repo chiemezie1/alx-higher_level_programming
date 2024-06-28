@@ -10,6 +10,9 @@ from relationship_state import Base, State
 from relationship_city import City
 
 if __name__ == "__main__":
+    """
+    Create engine to connect to MySQL database
+    """
     if len(sys.argv) != 4:
         print(
             """
@@ -19,7 +22,6 @@ if __name__ == "__main__":
         )
         sys.exit(1)
 
-    # Create engine to connect to MySQL database
     engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(
         sys.argv[1], sys.argv[2], sys.argv[3]), pool_pre_ping=True)
 
