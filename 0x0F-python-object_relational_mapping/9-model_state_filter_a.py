@@ -29,6 +29,4 @@ if __name__ == "__main__":
             State.name.like('%a%')):
         print("{}: {}".format(state.id, state.name))
 
-    session.commit()
-
     session.close()
