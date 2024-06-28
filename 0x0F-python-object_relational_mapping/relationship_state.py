@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """
 Script that defines a State class and creates a table in the database.
- If the State object is deleted,
-    all linked City objects must be automatically deleted. 
+If the State object is deleted,
+    all linked City objects must be automatically deleted.
 
 """
 from sqlalchemy import Column, Integer, String
@@ -23,4 +23,6 @@ class State(Base):
 
     id = Column(Integer, primary_key=True, autoincrement=True, nullable=False)
     name = Column(String(128), nullable=False)
-    cities = relationship('City', backref='state', cascade='all, delete-orphan')
+    cities = relationship(
+        'City', backref='state', cascade='all, delete-orphan'
+    )
