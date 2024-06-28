@@ -8,12 +8,14 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
 
+
 if __name__ == "__main__":
     if len(sys.argv) != 4:
-        print("""Usage: ./13-model_state_delete_a.py
+        print(
+            """Usage: ./13-model_state_delete_a.py
               <mysql username> <mysql password> <database name>
-              """
-              )
+            """
+            )
         sys.exit(1)
 
     try:
