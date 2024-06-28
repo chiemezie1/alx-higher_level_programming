@@ -22,7 +22,6 @@ if __name__ == "__main__":
         # Create engine to connect to MySQL database
         engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(
             sys.argv[1], sys.argv[2], sys.argv[3]), pool_pre_ping=True)
-        print("Database connection established.")
 
         # Create all tables in the engine
         Base.metadata.create_all(engine)
@@ -31,16 +30,11 @@ if __name__ == "__main__":
         session = Session()
 
         # Query  and delete all objects that contain letter 'a' in their name
-        states_to_delete = session.query(State).filter(
-            State.name.like('%a%')
-            ).all()
-
-        for state in states_to_delete:
-            session.delete(state)
+        for instance in session.query(State).filter(State.name.contains('a')):
+            session.delete(instance)
 
         # Commit the changes
         session.commit()
-        print("Deletion completed.")
 
     except Exception as e:
         print("Error:", e)
