@@ -10,9 +10,6 @@ from relationship_state import Base, State
 from relationship_city import City
 
 if __name__ == "__main__":
-    """
-    Create engine to connect to MySQL database
-    """
     if len(sys.argv) != 4:
         print(
             """
@@ -37,8 +34,8 @@ if __name__ == "__main__":
     new_state = State(name="California")
     new_city = City(name="San Francisco", state=new_state)
 
+    # Add and commit the new state and city to the database
     session.add(new_state)
-    session.add(new_city)
     session.commit()
 
     # Close the session
