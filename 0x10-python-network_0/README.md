@@ -110,7 +110,7 @@ HTTP response status codes indicate the result of the HTTP request. Common statu
 - `100 Informational`: The request was received, but not processed.
 - `200 OK`: The request was successful.
 - `300 Redirect`: The request was redirected.
-- `404 Not Found`: The requested resource could not be found.
+- `400 Bad Request`: The server could not understand the request.
 - `500 Internal Server Error`: The server encountered an error.
 
 ## HTTP Cookie
