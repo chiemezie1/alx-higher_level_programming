@@ -1,15 +1,4 @@
 #!/bin/bash
-# A Bash script that demonstrates how to send a GET request with JSON data using curl
+# A Bash script that takes in a URL as an argument, sends a GET request to the URL, and displays the body of the response
 
-# Example URL (replace with your actual URL)
-URL="$1"
-
-# Example JSON data to send in the request body
-JSON_DATA='{"X-School-User-Id": "98"}'
-
-# Send the GET request with curl
-curl -s \
-     -X GET \
-     -H "Content-Type: application/json" \
-     -d "$JSON_DATA" \
-     "$URL"
+curl -s -X GET -H "X-School-User-Id": "98" "$1"
