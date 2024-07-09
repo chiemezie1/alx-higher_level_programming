@@ -6,9 +6,5 @@ A script that takes in URL, send a request to the URL and displays
 import sys
 import urllib.request
 
-if len(sys.argv) < 2:
-    print("Usage: {} <URL>".format(sys.argv[0]))
-    sys.exit(1)
-
 with urllib.request.urlopen(sys.argv[1]) as response:
     print(response.getheader('X-Request-Id'))
