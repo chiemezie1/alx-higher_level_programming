@@ -2,7 +2,6 @@
 """
 A script that fetches ALX intranet status using requests
 """
-import sys
 import requests
 
 if __name__ == "__main__":
