@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-""""
-A script that takes in URL, send a request to the URL and displays the value
-"""
-import sys
+"""Takes URL sends request and displays value of X-Request-Id"""
 import urllib.request
+from sys import argv
 
-if sys.argv[1]:
-    with urllib.request.urlopen(sys.argv[1]) as response:
-        print(response.info()['X-Request-Id'])
+if len(argv) > 1:
+    with urllib.request.urlopen(argv[1]) as response:
+        print(response.getheader("X-Request-Id"))
+else:
+    print("Usage: {} <URL>".format(argv[0]))
