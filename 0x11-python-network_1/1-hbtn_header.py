@@ -10,7 +10,6 @@ if __name__ == "__main__":
     if len(sys.argv) < 2:
         print("Usage: {} <URL>".format(sys.argv[0]))
         sys.exit(1)
-        
+
     with urllib.request.urlopen(sys.argv[1]) as response:
-        print(response.info()['X-Request-Id'])
-        response.close()
+        print(response.getheader('X-Request-Id'))
