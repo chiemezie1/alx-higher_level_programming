@@ -12,8 +12,7 @@ if __name__ == "__main__":
     url = 'https://api.github.com/user'
 
     response = requests.get(url, auth=(username, token))
-    if response.status_code == 200:
-        user_info = response.json()
-        print(user_info.get('id'))
-    else:
-        print(None)
+    try:
+        print(response.json().get('id'))
+    except ValueError:
+        print('Not a valid JSON')
